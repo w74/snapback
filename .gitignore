@@ -1,3 +1,19 @@
+# =========================
+# Meteor & Packages
+# =========================
+.meteor/
+
+# Semantic UI
+client/semantic/
+#client/semantic/*.less
+#client/semantic/*.json
+#client/semantic/definitions/
+#client/semantic/themes/
+
+# =========================
+# Operating System Files
+# =========================
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -13,13 +29,10 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
+*.cfg
 
 # Windows shortcuts
 *.lnk
-
-# =========================
-# Operating System Files
-# =========================
 
 # OSX
 # =========================
