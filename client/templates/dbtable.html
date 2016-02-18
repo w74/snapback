@@ -1,0 +1,75 @@
+<template name="login">
+	<div class="ui card snap-login">
+		<div class="content">
+			<div class="header">
+				Login
+			</div>
+		</div>
+		<div class="content">
+			<div class="ui form">
+				<div class="field">
+					<label>Password</label>
+					<input type="password" name="mongopass">
+				</div>
+				<div class="ui error message">
+			    <div class="header">Password Invalid</div>
+			  </div>
+				<div class="ui submit button snap-login-submit" type="submit">Submit</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="dbtable">
+	<div class="ui segment" id="snap-mtable">
+		<div class="ui action input">
+		  <input placeholder="Search by ID" type="text" id="snap-searchMeta">
+		  <button class="ui button" id="snap-loadMeta">Search</button>
+		</div>
+		<h3 id="mtable-count">Number of Images: {{ct}}</h3>
+		<table class="ui unstackable definition celled table">
+			<tbody>
+				<tr>
+					<td>Hash <span class="extra-info">6-Char String</span></td>
+					<td contenteditable="true">{{photo.hash}}</td>
+				</tr>
+				<tr>
+					<td>Link <span class="extra-info">Include "http://"</span></td>
+					<td contenteditable="true">{{photo.link}}</td>
+				</tr>
+				<tr>
+					<td>Thumb <span class="extra-info">Include "http://"</span></td>
+					<td contenteditable="true">{{photo.thumb}}</td>
+				</tr>
+				<tr>
+					<td>Filter1 <span class="extra-info">CSV</span></td>
+					<td contenteditable="true">{{photo.filter1}}</td>
+				</tr>
+				<tr>
+					<td>Filter2 <span class="extra-info">CSV</span></td>
+					<td contenteditable="true">{{photo.filter2}}</td>
+				</tr>
+				<tr>
+					<td>Filter3 <span class="extra-info">CSV</span></td>
+					<td contenteditable="true">{{photo.filter3}}</td>
+				</tr>
+				<tr>
+					<td>Attribution <span class="extra-info">Artist</span></td>
+					<td contenteditable="true">{{photo.attr}}</td>
+				</tr>
+				<tr>
+					<td>Source <span class="extra-info">&copy; Owner</span></td>
+					<td contenteditable="true">{{photo.source}}</td>
+				</tr>
+			</tbody>
+		</table>
+		<section>
+			<button class="circular ui green icon button" id="snap-add">
+  			<i class="checkmark icon"></i>
+			</button>
+			<button class="circular ui red icon button" id="snap-del">
+  			<i class="trash icon"></i>
+			</button>
+		</section>
+	</div>
+</template>

@@ -1,6 +1,13 @@
-// Globals
+//Modules
+$white: #FBF8F5;
+$light: #F6F4E9;
+$green: #EDEDE1;
+$tan: #EEE9DE;
+$red: #C70808;
+
+//Globals
 body
-	background-color: oldlace
+	background-color: $light
 main
 	position: relative
 h1
@@ -12,3 +19,40 @@ h1
 .snap-search
 	.label
 		background-color: transparent
+
+.ui.grid.snap-filter-list
+	position: relative
+	margin: -1rem 0 0 0
+	padding: 1rem 0
+	background-color: $tan
+
+	.column
+		text-align: center
+		
+.snap-login
+	position: absolute
+	top: 30%
+	left: 50%
+	transform: translate(-50%, -50%)
+
+#snap-mtable
+	margin: 50px auto 0
+	width: 90%
+
+	.extra-info
+		margin-left: 1em
+		font-weight: normal
+		color: #888
+	section
+		text-align: right
+	#mtable-count
+		margin: 0
+		float: right
+		line-height: 37px
+
+
+//Media Queries
+@media screen and (max-width: 991px)
+	.snap-filter-list
+		.ui.divider
+			display: none

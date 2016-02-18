@@ -1,5 +1,9 @@
 body {
-  background-color: oldlace;
+  background-color: #F6F4E9;
+}
+
+main {
+  position: relative;
 }
 
 h1 {
@@ -9,6 +13,53 @@ h1 {
 
 .snap-search .label {
   background-color: transparent;
+}
+
+.ui.grid.snap-filter-list {
+  position: relative;
+  margin: -1rem 0 0 0;
+  padding: 1rem 0;
+  background-color: #EEE9DE;
+}
+
+.ui.grid.snap-filter-list .column {
+  text-align: center;
+}
+
+.snap-login {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+#snap-mtable {
+  margin: 50px auto 0;
+  width: 90%;
+}
+
+#snap-mtable .extra-info {
+  margin-left: 1em;
+  font-weight: normal;
+  color: #888;
+}
+
+#snap-mtable section {
+  text-align: right;
+}
+
+#snap-mtable #mtable-count {
+  margin: 0;
+  float: right;
+  line-height: 37px;
+}
+
+@media screen and (max-width: 991px) {
+  .snap-filter-list .ui.divider {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=snapback.css.map */
