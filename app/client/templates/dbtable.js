@@ -20,7 +20,7 @@ Template.login.events({
 });
 
 Template.dbtable.onRendered(() => {
-	Meteor.call('dbCount', function(e, r){
+	Meteor.call('dbCount', {}, function(e, r){
 		DBCOUNT.set(r);
 	});
 })
@@ -62,7 +62,7 @@ Template.dbtable.events({
 function dbtableClear(){
 	$('td[contenteditable]').text('');
 
-	Meteor.call('dbCount', function(e, r){
+	Meteor.call('dbCount', {}, function(e, r){
 		DBCOUNT.set(r);
 	});
 }

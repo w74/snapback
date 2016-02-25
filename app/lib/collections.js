@@ -15,6 +15,7 @@
  *  @example: {
  *  	hash: 'IQTQWK',
  *  	link: 'https://images.unsplash.com/photo-1446108440972-3798c860067c?fm=jpg',
+ *  	thumb: 'http://example.com/example.jpg'
  *  	source: 'unsplash',
  *  	filter1: [],
  *  	filter2: [],

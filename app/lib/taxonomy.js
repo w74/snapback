@@ -45,10 +45,10 @@ TAXONOMY =
 		],
 
 		"entertainment": [
-			{"fValue": "music", "fName": "music"},
-			{"fValue": "dance", "fName": "dance"},
-			{"fValue": "sports", "fName": "sports"},
-			{"fValue": "theatre", "fName": "theatre"}
+			{"fValue": "music", "fName": "Music"},
+			{"fValue": "dance", "fName": "Dance"},
+			{"fValue": "sports", "fName": "Sports"},
+			{"fValue": "theatre", "fName": "Theatre"}
 		],
 
 		"history": [

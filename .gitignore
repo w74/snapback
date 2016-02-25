@@ -4,7 +4,7 @@
 .meteor/
 
 # Semantic UI
-client/semantic/
+app/client/semantic/
 #client/semantic/*.less
 #client/semantic/*.json
 #client/semantic/definitions/
@@ -58,3 +58,15 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Other Files
+# =========================
+
+# Keys
+*.pem
+*.ppk
+mup.json
+
+# Design Files
+*.ai
+*.psd

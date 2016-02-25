@@ -1,39 +1,63 @@
 //Modules
-$white: #FBF8F5;
-$light: #F6F4E9;
-$green: #EDEDE1;
-$tan: #EEE9DE;
-$red: #C70808;
+$white: #F5F5F5;
+$pink: #FC5185;
+$teal: #3FC1C9;
+$navy: #364F6B;
+
+$arimo: 'Arimo', sans-serif;
 
 //Globals
-body
-	background-color: $light
 main
 	position: relative
 h1
 	text:
 		transform: uppercase
 		align: center
+h6
+	margin: 0
 
 //Template Items
+header
+	&.ui.menu > .item:first-child
+		padding: 5px 0
+	.snap-logo
+		width: auto
+		height: 40px
 .snap-search
 	.label
 		background-color: transparent
+	.search.link
+		color: $white
+		background-color: $pink
+
 
 .ui.grid.snap-filter-list
 	position: relative
 	margin: -1rem 0 0 0
 	padding: 1rem 0
-	background-color: $tan
+	background-color: $teal
 
 	.column
 		text-align: center
-		
+	#snap-go
+		margin-left: 0.5em
+		vertical-align: middle
+
+#snap-deck
+	margin: 0 auto
+	width: 96%
+
+.ui.cards > .card
+	background-color: $white
+
 .snap-login
 	position: absolute
 	top: 30%
 	left: 50%
 	transform: translate(-50%, -50%)
+
+	.content:first-child
+		background-color: $teal
 
 #snap-mtable
 	margin: 50px auto 0
