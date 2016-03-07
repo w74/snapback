@@ -10,6 +10,27 @@ Template.mainFilter.helpers({
 	deck(){return DECK.get();}
 });
 
+Template.mainFilter.onCreated(() => {
+	window.addEventListener("scroll", (e) => {
+		if(e.view.scrollY == $(document).height()-$(window).height()){
+			Session.set('scroll', Session.get('scroll')+1);
+			var query = {
+				f1: Session.get('f1'),
+				f2: Session.get('f2'),
+				f3: Session.get('f3'),
+				srt: $('#snap-sort').val().split(','),
+				skip: Session.get('scroll')
+			};
+			Meteor.call('findImagesViaFilters', query,
+				function(e, r){
+					if(e){console.log(e); return;}
+					DECK.set(DECK.get().concat(r));
+				}
+			);
+		}
+	});
+})
+
 Template.mainFilter.events({
 	'click .card .image'(event){
 		Meteor.call('addPopularity', this._id);

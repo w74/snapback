@@ -1,6 +1,6 @@
 Meteor.methods({
 	checkLogin(p){
-		let PASS = "zoidberg";
+		let PASS = "SUPER SECRET PASSWORD";
 		if(p.toLowerCase().trim() == PASS){
 			return true;
 		}
@@ -58,7 +58,7 @@ Meteor.methods({
 		return PHOTOBOOK.find(query, {
 			sort: [q.srt],
 			skip: q.skip * 20,
-			limit: 24
+			limit: 16
 		}).fetch();
 	}
 });

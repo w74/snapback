@@ -7,6 +7,11 @@ h1 {
   text-align: center;
 }
 
+h5 {
+  margin: 0 0 0.5em;
+  color: #F5F5F5;
+}
+
 h6 {
   margin: 0;
 }
@@ -20,13 +25,37 @@ header .snap-logo {
   height: 40px;
 }
 
+header #snap-credits {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  -webkit-align-items: middle;
+      -ms-flex-align: middle;
+          align-items: middle;
+  padding: 10px 0;
+}
+
+header #snap-credits img {
+  margin: 0;
+  -webkit-filter: saturate(0.25);
+          filter: saturate(0.25);
+}
+
+header #snap-credits img:hover {
+  -webkit-filter: saturate(1);
+          filter: saturate(1);
+}
+
 .snap-search .label {
   background-color: transparent;
 }
 
 .snap-search .search.link {
   color: #F5F5F5;
-  background-color: #FC5185;
+  background-color: #364F6B;
 }
 
 .ui.grid.snap-filter-list {
@@ -40,18 +69,20 @@ header .snap-logo {
   text-align: center;
 }
 
+.ui.grid.snap-filter-list .column > span {
+  display: inline-block;
+  text-align: left;
+}
+
 .ui.grid.snap-filter-list #snap-go {
   margin-left: 0.5em;
+  margin-bottom: 10px;
   vertical-align: middle;
 }
 
 #snap-deck {
   margin: 0 auto;
   width: 96%;
-}
-
-.ui.cards > .card {
-  background-color: #F5F5F5;
 }
 
 .snap-login {

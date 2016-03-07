@@ -1,6 +1,6 @@
 Template.header.events({
 	'click .search.link'(event){
-		let searchID = $('.snap-search input').val();
+		let searchID = $('.snap-search input').val().toUpperCase();
 		if(searchID.length !== 6){
 			$(event.currentTarget).transition('jiggle');
 		}

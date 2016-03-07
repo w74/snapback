@@ -13,6 +13,9 @@ h1
 	text:
 		transform: uppercase
 		align: center
+h5
+	margin: 0 0 0.5em
+	color: $white
 h6
 	margin: 0
 
@@ -23,12 +26,22 @@ header
 	.snap-logo
 		width: auto
 		height: 40px
+	#snap-credits
+		display: flex
+		justify-content: space-around
+		align-items: middle
+		padding: 10px 0
+		img
+			margin: 0
+			filter: saturate(0.25)
+			&:hover
+				filter: saturate(1)
 .snap-search
 	.label
 		background-color: transparent
 	.search.link
 		color: $white
-		background-color: $pink
+		background-color: $navy
 
 
 .ui.grid.snap-filter-list
@@ -39,16 +52,17 @@ header
 
 	.column
 		text-align: center
+		& > span
+			display: inline-block;
+			text-align: left
 	#snap-go
 		margin-left: 0.5em
+		margin-bottom: 10px
 		vertical-align: middle
 
 #snap-deck
 	margin: 0 auto
 	width: 96%
-
-.ui.cards > .card
-	background-color: $white
 
 .snap-login
 	position: absolute

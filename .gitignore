@@ -5,10 +5,9 @@
 
 # Semantic UI
 app/client/semantic/
-#client/semantic/*.less
-#client/semantic/*.json
-#client/semantic/definitions/
-#client/semantic/themes/
+client/semantic/*.less
+client/semantic/*.json
+client/semantic/
 
 # =========================
 # Operating System Files
