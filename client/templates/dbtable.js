@@ -31,6 +31,10 @@ Template.dbtable.events({
 			var row = $(this);
 			return row.find(':nth-child(2)').text();
 		}).get();
+		if(args[0].length != 6){
+			$('#snap-add').transition('flash');
+			return;
+		}
 		args[0] = args[0].toUpperCase();
 		if(args[3]){args[3] = args[3].trim().split(',');}
 		if(args[4]){args[4] = args[4].trim().split(',');}
@@ -41,7 +45,10 @@ Template.dbtable.events({
 
 	'click #snap-del'(event){
 		var hash = $('.table  tbody tr').eq(0).find(':nth-child(2)').text();
-		console.log(hash);
+		if(hash.length != 6){
+			$('#snap-del').transition('flash');
+			return;
+		}
 		Meteor.call('delImage', hash);
 		dbtableClear();
 	},
