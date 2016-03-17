@@ -1,4 +1,6 @@
 Meteor.methods({
+
+	// Login check to access Mongo Database. Intended only for internal use.
 	checkLogin(p){
 		let PASS = "SUPER SECRET PASSWORD";
 		if(p.toLowerCase().trim() == PASS){
@@ -7,6 +9,7 @@ Meteor.methods({
 		return false;
 	},
 
+	// Add a new image entry to the Mongo database
 	addImage(arr){
 		PHOTOBOOK.upsert({hash: arr[0]}, {
 			$setOnInsert: {
@@ -26,24 +29,29 @@ Meteor.methods({
 		});
 	},
 
+	// Increment an image's popularity
 	addPopularity(id){
 		PHOTOBOOK.update({_id: id}, {$inc: {popularity: 1}});
 	},
 
+	// Remove an image from the Mongo database by ID
 	delImage(hash){
 		PHOTOBOOK.remove({hash: hash});
 	},
 
+	// Gets the total number of images in the Mongo database
 	dbCount(q){
 		return PHOTOBOOK.find(q).count();
 	},
 
+	// Finds an images and its associated data by ID
 	findImageViaHash(hash){
 		let a = PHOTOBOOK.findOne({hash: hash});
 		if(a){return a;}
 		else{return undefined;}
 	},
 
+	// Finds all images and their associated data by filter
 	findImagesViaFilters(q){
 		let query = {};
 		if(q.f1){

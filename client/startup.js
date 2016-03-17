@@ -1,4 +1,6 @@
 Meteor.startup(() => {
+
+  // Load fonts from Google
 	WebFontConfig = {
     google: { families: [ 'Arimo:400,700:latin' ] }
   };

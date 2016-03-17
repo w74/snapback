@@ -4,10 +4,10 @@
 .meteor/
 
 # Semantic UI
-app/client/semantic/
-client/semantic/*.less
+client/semantic/definitions
+client/semantic/themes
 client/semantic/*.json
-client/semantic/
+client/semantic/*.less
 
 # =========================
 # Operating System Files

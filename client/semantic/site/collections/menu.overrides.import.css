@@ -1,0 +1,8 @@
+/*******************************
+         Site Overrides
+*******************************/
+.ui.menu .item > .input {
+  max-width: 350px;
+}
+
+/*# sourceMappingURL=menu.overrides.import.css.map */

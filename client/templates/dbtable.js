@@ -2,11 +2,13 @@ var DBCOUNT = new ReactiveVar(0);
 Session.set('cphoto', null);
 
 Template.dbtable.helpers({
+	// The count here is implmented mainly as a method to see whether an add or delete call was fulfuilled
 	ct(){return DBCOUNT.get();},
 	photo(){return Session.get('cphoto');}
 });
 
 Template.login.events({
+	// Checks password conformity
 	'click .snap-login-submit'(event){
 		Meteor.call('checkLogin', $('[name=mongopass]').val(), function(error, result){
 			if(result){
@@ -20,12 +22,15 @@ Template.login.events({
 });
 
 Template.dbtable.onRendered(() => {
+	// Show total number of images on page load
 	Meteor.call('dbCount', {}, function(e, r){
 		DBCOUNT.set(r);
 	});
 })
 
 Template.dbtable.events({
+
+	// Pulls all info from table, creates a new image, and adds it to the Mongo database
 	'click #snap-add'(event){
 		var args = $('.table  tbody tr').map(function(){
 			var row = $(this);
@@ -43,6 +48,7 @@ Template.dbtable.events({
 		dbtableClear();
 	},
 
+	// Removes an image by ID. Only the first column of the table matters in this method call
 	'click #snap-del'(event){
 		var hash = $('.table  tbody tr').eq(0).find(':nth-child(2)').text();
 		if(hash.length != 6){
@@ -53,6 +59,7 @@ Template.dbtable.events({
 		dbtableClear();
 	},
 
+	// Gets the data associated with a particular image and fills in the table so it's ready for editing
 	'click #snap-loadMeta'(event){
 		var hash = $('#snap-searchMeta').val().toUpperCase();
 		if(hash.length != 6){
@@ -66,6 +73,7 @@ Template.dbtable.events({
 	}
 })
 
+// Wipes the table clean
 function dbtableClear(){
 	$('td[contenteditable]').text('');
 

@@ -1,9 +1,10 @@
-Session.set('f1', '');
-Session.set('f2', null);
-Session.set('f3', null);
-Session.set('f3Opt', []);
-Session.set('scroll', 0);
-DECK = new ReactiveVar([]);
+Session.set('f1', '');				// Selected value of the first filter
+Session.set('f2', null);			// Selected value of the second filter
+Session.set('f3', null);			// Selected value(s) of the third filter
+Session.set('f2Opt', []);			// Available options pulled from Taxonomy.js
+Session.set('f3Opt', []);			// Available options pulled from Taxonomy.js
+Session.set('scroll', 0);			// Counter for how many times lazy-load has been called
+DECK = new ReactiveVar([]);		// Results from a Filter search
 
 //MainFilter
 Template.mainFilter.helpers({
@@ -33,6 +34,7 @@ Template.mainFilter.onCreated(() => {
 
 Template.mainFilter.events({
 	'click .card .image'(event){
+		// Every time an image is clicked on, the popularity increments by 1
 		Meteor.call('addPopularity', this._id);
 	}
 });
@@ -45,6 +47,7 @@ Template.filters.helpers({
 });
 
 Template.filters.onRendered(() => {
+	// Initiate the dropdowns and search All Images
 	$('.ui.dropdown').dropdown({
 		maxSelections: 3,
 		placeholder: false
