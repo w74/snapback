@@ -81,9 +81,9 @@ Template.filters.events({
 	 
 	'change nav .selection'(event){
 		let val = event.target.value;
-		$(event.currentTarget).nextAll('.selection').addClass('disabled').dropdown('clear');
+		$(event.currentTarget).parent().nextAll().children('.selection').dropdown('clear').addClass('disabled');
 		if(TAXONOMY[val] || (TAXONOMY[Session.get('f1')] && TAXONOMY[Session.get('f1')][val])){
-			$(event.currentTarget).next('.selection').removeClass('disabled');
+			$(event.currentTarget).parent().next().children('.selection').removeClass('disabled');
 		}
 		Session.set('scroll', 0);
 	},
