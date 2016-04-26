@@ -11,9 +11,12 @@ Template.mainFilter.helpers({
 	deck(){return DECK.get();}
 });
 
+/**
+ *  [After the main filter is created, implements lazy loading based on scroll position]
+ */
 Template.mainFilter.onCreated(() => {
 	window.addEventListener("scroll", (e) => {
-		if(e.view.scrollY == $(document).height()-$(window).height()){
+		if($(e.target).scrollTop() == $(document).height()-$(window).height()){
 			Session.set('scroll', Session.get('scroll')+1);
 			var query = {
 				f1: Session.get('f1'),
@@ -46,8 +49,10 @@ Template.filters.helpers({
 	f3Opt(){return Session.get('f3Opt');},
 });
 
+/**
+ *  [After filters are loaded, searches all photos]
+ */
 Template.filters.onRendered(() => {
-	// Initiate the dropdowns and search All Images
 	$('.ui.dropdown').dropdown({
 		maxSelections: 3,
 		placeholder: false
@@ -56,6 +61,9 @@ Template.filters.onRendered(() => {
 });
 
 Template.filters.events({
+	/**
+	 *  [On filter 1 change, record new value]
+	 */
 	'change #snap-filter1'(event){
 		let val = event.target.value;
 		if(val != ''){Session.set('f2Opt', TAXONOMY[val].filters);}
@@ -63,6 +71,9 @@ Template.filters.events({
 		Session.set('f1', val);
 	},
 
+	/**
+	 *  [On filter 2 change, if filter 1 is valid, record new value]
+	 */
 	'change #snap-filter2'(event){
 		let val = event.target.value;
 		//if subfilters exist, enable third filter
@@ -73,12 +84,18 @@ Template.filters.events({
 		Session.set('f2', val);
 	},
 
+	/**
+	 *  [On filter 3 change, record new value]
+	 */
 	'change #snap-filter3'(event){
 		//get array of subfilters
 		var subfilters = $(event.target).dropdown('get value').pop();
 		Session.set('f3', subfilters);
 	},
 	 
+	/**
+	 *  [Anytime a filter changes, clears and resets all filter to the right of it]
+	 */ 
 	'change nav .selection'(event){
 		let val = event.target.value;
 		$(event.currentTarget).parent().nextAll().children('.selection').dropdown('clear').addClass('disabled');
@@ -88,6 +105,9 @@ Template.filters.events({
 		Session.set('scroll', 0);
 	},
 
+	/**
+	 *  [Pull all values from the filters, including sort order, and send the query to the DB]
+	 */
 	'click #snap-go'(event){
 		var query = {
 			f1: Session.get('f1'),

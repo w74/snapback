@@ -1,6 +1,10 @@
 Meteor.methods({
 
-	// Login check to access Mongo Database. Intended only for internal use.
+	/**
+	 *  [Login check to access Mongo Database. Intended only for internal use.]
+	 *  @param {String} p [password]
+	 *  @return {Boolean} [return true if password matches, false otherwise]
+	 */
 	checkLogin(p){
 		let PASS = "SUPER SECRET PASSWORD";
 		if(p.toLowerCase().trim() == PASS){
@@ -9,7 +13,10 @@ Meteor.methods({
 		return false;
 	},
 
-	// Add a new image entry to the Mongo database
+	/**
+	 *  [Add a new image entry to the Mongo database]
+	 *  @param {Array} arr [array of values to insert into DB]
+	 */
 	addImage(arr){
 		PHOTOBOOK.upsert({hash: arr[0]}, {
 			$setOnInsert: {
@@ -29,29 +36,47 @@ Meteor.methods({
 		});
 	},
 
-	// Increment an image's popularity
+	/**
+	 *  [Increment an image's popularity]
+	 *  @param {String} id [ID of a photo]
+	 */
 	addPopularity(id){
 		PHOTOBOOK.update({_id: id}, {$inc: {popularity: 1}});
 	},
 
-	// Remove an image from the Mongo database by ID
+	/**
+	 *  [Remove an image from the Mongo database by ID]
+	 *  @param {String} hash [ID of a photo]
+	 */
 	delImage(hash){
 		PHOTOBOOK.remove({hash: hash});
 	},
 
-	// Gets the total number of images in the Mongo database
+	/**
+	 *  [Gets the total number of images in the Mongo database]
+	 *  @param {String} q [query, in this case, all photos]
+	 *  @return {Int} [return number of photos in DB]
+	 */
 	dbCount(q){
 		return PHOTOBOOK.find(q).count();
 	},
 
-	// Finds an images and its associated data by ID
+	/**
+	 *  [Finds an images and its associated data by ID]
+	 *  @param {String} hash [ID of a photo]
+	 *  @return {Object} [return found image or return undefined if no image found]
+	 */
 	findImageViaHash(hash){
 		let a = PHOTOBOOK.findOne({hash: hash});
 		if(a){return a;}
 		else{return undefined;}
 	},
 
-	// Finds all images and their associated data by filter
+	/**
+	 *  [Finds all images and their associated data by filter]
+	 *  @param {Object} q [filters from the page]
+	 *  @return {Object} [results from MongoDB query]
+	 */
 	findImagesViaFilters(q){
 		let query = {};
 		if(q.f1){

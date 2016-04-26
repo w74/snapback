@@ -8,7 +8,9 @@ Template.dbtable.helpers({
 });
 
 Template.login.events({
-	// Checks password conformity
+	/**
+	 *  [On login page, if password is valid, render the database table. Else, show error box]
+	 */
 	'click .snap-login-submit'(event){
 		Meteor.call('checkLogin', $('[name=mongopass]').val(), function(error, result){
 			if(result){
@@ -30,7 +32,9 @@ Template.dbtable.onRendered(() => {
 
 Template.dbtable.events({
 
-	// Pulls all info from table, creates a new image, and adds it to the Mongo database
+	/**
+	 *  [Pulls all data from table, creates a new Image object, and sends ito the DB.]
+	 */
 	'click #snap-add'(event){
 		var args = $('.table  tbody tr').map(function(){
 			var row = $(this);
@@ -48,7 +52,9 @@ Template.dbtable.events({
 		dbtableClear();
 	},
 
-	// Removes an image by ID. Only the first column of the table matters in this method call
+	/**
+	 *  [Removes an image from the DB. Only the first input (ID) is considered]
+	 */
 	'click #snap-del'(event){
 		var hash = $('.table  tbody tr').eq(0).find(':nth-child(2)').text();
 		if(hash.length != 6){
@@ -59,7 +65,9 @@ Template.dbtable.events({
 		dbtableClear();
 	},
 
-	// Gets the data associated with a particular image and fills in the table so it's ready for editing
+	/**
+	 *  [Gets the data associated with a particular image and fills in the table so it's ready for editing]
+	 */
 	'click #snap-loadMeta'(event){
 		var hash = $('#snap-searchMeta').val().toUpperCase();
 		if(hash.length != 6){
@@ -73,7 +81,9 @@ Template.dbtable.events({
 	}
 })
 
-// Wipes the table clean
+/**
+	 *  [Wipes the table]
+	 */
 function dbtableClear(){
 	$('td[contenteditable]').text('');
 

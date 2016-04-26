@@ -11,10 +11,6 @@ Router.route('/browse', {
 	template: 'mainFilter'
 });
 
-Router.route('/browse/:id', {
-	
-});
-
 Router.route('/mongo', {
 	name: 'mongo',
 	template: 'login'
